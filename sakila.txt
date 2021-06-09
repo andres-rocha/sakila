@@ -1,0 +1,47 @@
+SELECT first_name, last_name, email, address FROM customer
+JOIN address ON address.address_id = customer.address_id
+JOIN city ON address.city_id = city.city_id
+WHERE city.city_id = 312
+
+SELECT title, description, release_year, rating, special_features, name  FROM film
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name LIKE "Comedy"
+
+SELECT actor.actor_id, first_name, title, description, release_year  FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE actor.actor_id = 5
+
+SELECT first_name, first_name, last_name, email, address, address.city_id FROM customer
+JOIN address ON address.address_id = customer.address_id
+JOIN store ON store.store_id = customer.store_id
+WHERE store.store_id = 1 AND (address.city_id=1 OR address.city_id=42  OR address.city_id=312 OR address.city_id=459);
+
+SELECT title, description, release_year, rating, special_features, actor.actor_id FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+WHERE actor.actor_id = 15 AND special_features LIKE "%Behind the Scenes%" AND rating LIKE "G"
+
+SELECT film_actor.film_id, title, actor.actor_id, first_name FROM actor
+JOIN  film_actor ON actor.actor_id = film_actor.actor_id
+JOIN film ON film.film_id = film_actor.film_id
+WHERE film.film_id = 369
+
+SELECT title, description, release_year, rating, special_features, name  FROM film
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE name LIKE "Drama" AND rental_rate = 2.99;
+
+SELECT title, description, release_year, rating, special_features, actor.first_name, actor.last_name, name FROM film
+JOIN film_actor ON film.film_id = film_actor.film_id
+JOIN actor ON actor.actor_id = film_actor.actor_id
+JOIN film_category ON film.film_id = film_category.film_id
+JOIN category ON category.category_id = film_category.category_id
+WHERE first_name LIKE "SANDRA" AND last_name LIKE "KILMER" AND name LIKE "Action"
+
+
+
+
+
+
